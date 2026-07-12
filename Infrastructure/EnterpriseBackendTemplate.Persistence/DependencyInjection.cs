@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using EnterpriseBackendTemplate.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +10,16 @@ namespace EnterpriseBackendTemplate.Persistence;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddPersistence(this IServiceCollection services)
+    public static IServiceCollection AddPersistence(this IServiceCollection services,IConfiguration configuration)
     {
+        string connectionString =
+            configuration.GetConnectionString("SqlServer")
+            ?? throw new InvalidOperationException(
+                "Connection string 'SqlServer' was not found.");
+
+        services.AddDbContext<AppDbContext>(options =>
+            options.UseSqlServer(connectionString));
+
         return services;
     }
 }

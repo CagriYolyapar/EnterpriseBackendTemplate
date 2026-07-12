@@ -10,4 +10,7 @@
   <Folder Name="/Presentation/">
     <Project Path="Presentation/EnterpriseBackendTemplate.WebApi/EnterpriseBackendTemplate.WebApi.csproj" Id="6ed94044-7a22-4469-b645-584e9f21ce95" />
   </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+  </Folder>
 </Solution>
