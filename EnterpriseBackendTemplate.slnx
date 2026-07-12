@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="Core/EnterpriseBackendTemplate.Application/EnterpriseBackendTemplate.Application.csproj" Id="db498b3c-0c5e-4d44-87e2-f628aca2c3d5" />
+    <Project Path="Core/EnterpriseBackendTemplate.Contract/EnterpriseBackendTemplate.Contract.csproj" Id="9947cf4d-ca34-42e9-bf71-098a88ae35c7" />
+    <Project Path="Core/EnterpriseBackendTemplate.Domain/EnterpriseBackendTemplate.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="Infrastructure/EnterpriseBackendTemplate.Persistence/EnterpriseBackendTemplate.Persistence.csproj" Id="36389cc2-542d-44e1-9e65-cb1cbae13bcb" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Presentation/EnterpriseBackendTemplate.WebApi/EnterpriseBackendTemplate.WebApi.csproj" Id="6ed94044-7a22-4469-b645-584e9f21ce95" />
+  </Folder>
+</Solution>
