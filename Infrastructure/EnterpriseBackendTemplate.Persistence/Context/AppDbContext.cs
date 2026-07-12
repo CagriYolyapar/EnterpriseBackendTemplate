@@ -1,10 +1,11 @@
-﻿using EnterpriseBackendTemplate.Domain.Common;
+﻿using EnterpriseBackendTemplate.Contract.PersistenceContracts;
+using EnterpriseBackendTemplate.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace EnterpriseBackendTemplate.Persistence.Context;
 
-public sealed class AppDbContext(DbContextOptions<AppDbContext> opt) : DbContext(opt)
+public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options), IUnitOfWork
 {
     public DbSet<Product> Products => Set<Product>();
 
