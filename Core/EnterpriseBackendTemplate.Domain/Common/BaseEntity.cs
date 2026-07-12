@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EnterpriseBackendTemplate.Domain.Common
-{
+namespace EnterpriseBackendTemplate.Domain.Common;
+
     public abstract class BaseEntity
     {
         public Guid Id { get; protected set; } = Guid.NewGuid();
@@ -16,4 +16,4 @@ namespace EnterpriseBackendTemplate.Domain.Common
             UpdatedAtUtc = DateTime.UtcNow;
         }
     }
-}
+
