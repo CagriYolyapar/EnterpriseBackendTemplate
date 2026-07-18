@@ -23,6 +23,22 @@ namespace EnterpriseBackendTemplate.Persistence.Repositories
           cancellationToken);
         }
 
+        public async Task<int> CountAsync(CancellationToken cancellationToken = default)
+        {
+            return await context.Set<T>().CountAsync(cancellationToken);
+        }
+
+        public async Task<IReadOnlyList<T>> GetPagedAsync(int pageNumber,int pageSize,CancellationToken cancellationToken = default)
+        {
+            return await context
+                .Set<T>()
+                .AsNoTracking()
+                .OrderBy(x => x.Id)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken);
+        }
+
         public  Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             return  _dbSet.FindAsync([id], cancellationToken).AsTask();

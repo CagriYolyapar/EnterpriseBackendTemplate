@@ -1,4 +1,5 @@
 ﻿using EnterpriseBackendTemplate.Application.Features.Products.Create;
+using EnterpriseBackendTemplate.Application.Features.Products.GetAll;
 using EnterpriseBackendTemplate.Application.Features.Products.GetById;
 using EnterpriseBackendTemplate.Application.Features.Products.Update;
 using EnterpriseBackendTemplate.WebApi.Contracts.Products;
@@ -12,6 +13,18 @@ namespace EnterpriseBackendTemplate.WebApi.Controllers;
 [ApiController]
 public sealed class ProductsController(ISender sender) : ControllerBase
 {
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll([FromQuery] GetProductsRequest request,CancellationToken cancellationToken)
+    {
+        var query = new GetProductsQuery(request.PageNumber, request.PageSize);
+        var result = await sender.Send(query, cancellationToken);
+
+        return Ok(result.Value);
+    }
+
+
+
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(
         Guid id,
